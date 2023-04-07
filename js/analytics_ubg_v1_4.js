@@ -2,7 +2,7 @@ function loadGoogleAnalytics(id) {
     // Google tag (gtag.js)
     var firstScript= document.getElementsByTagName("script")[0];
     newScript= document.createElement("script");
-    newScript.async= "";  
+    newScript.async= "";
     newScript.src= "https://www.googletagmanager.com/gtag/js?id="+ id;
     firstScript.parentNode.insertBefore(newScript, firstScript);
 
@@ -12,12 +12,13 @@ function loadGoogleAnalytics(id) {
     gtag('config', id);
 }
 
-$(window).on("load", function() {
+window.addEventListener("load", function() {
     if (navigator.webdriver) {
-        loadGoogleAnalytics("G-LE1ZGTPC77");
-        console.log('Bot Browser');
+      console.log('Bot Browser');
+      loadGoogleAnalytics("G-LE1ZGTPC77");
+
     } else {
-        loadGoogleAnalytics("G-E7D3EVY6HR");
-        console.log('Human Browser');
+      console.log('Human Browser');
+      loadGoogleAnalytics("G-E7D3EVY6HR");
     }
 });
